@@ -9,6 +9,9 @@ import {
   color
 } from "src/styles";
 
+const githubReadmeStats =
+  "![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=anuraghazra&show_icons=true&theme=tokyonight)";
+
 const StyledBio = styled.div`
   background-image: linear-gradient(#fff, #f5f5fa);
   height: 300px;
@@ -106,6 +109,10 @@ const Bio: React.FC = () => {
               </StyledFlex>
             )}
           </StyledFlex>
+          <section
+            dangerouslySetInnerHTML={{ __html: githubReadmeStats }}
+            itemProp='articleBody'
+          />
         </StyledCentering>
       </CustomContainer>
     </StyledBio>
