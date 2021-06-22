@@ -1,4 +1,5 @@
 import { css } from "@emotion/react";
+import { up } from "styled-breakpoints";
 import styled from "@emotion/styled";
 
 export const StyledContainer = styled.div`

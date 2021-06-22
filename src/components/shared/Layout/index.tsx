@@ -1,6 +1,8 @@
 import * as React from "react";
+import { ThemeProvider } from "@emotion/react";
 import Header from "./modules/Header";
 import Footer from "./modules/Footer";
+import { theme } from "@/styles";
 
 type Props = {
   location: typeof window.location;
@@ -14,9 +16,11 @@ const Layout: React.FC<Props> = ({ location, title, children }) => {
 
   return (
     <div data-is-root-path={isRootPath}>
-      <Header isRootPath={isRootPath} title={title} />
-      <main>{children}</main>
-      <Footer />
+      <ThemeProvider theme={theme}>
+        <Header isRootPath={isRootPath} title={title} />
+        <main>{children}</main>
+        <Footer />
+      </ThemeProvider>
     </div>
   );
 };
