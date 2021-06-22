@@ -94,6 +94,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
     type Social {
       twitter: String
+      github: String
     }
     type MarkdownRemark implements Node {
       frontmatter: Frontmatter

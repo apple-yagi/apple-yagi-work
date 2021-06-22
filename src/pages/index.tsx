@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link, graphql, PageProps } from "gatsby";
-import Bio from "src/components/shared/Bio";
+import Bio from "@/components/shared/Bio";
 import Layout from "src/components/shared/Layout";
 import Seo from "src/components/shared/Seo";
 import { StyledContainer } from "src/styles";
@@ -29,6 +29,7 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title='Blogs' />
+      <Bio />
       <StyledContainer>
         <ol style={{ listStyle: `none` }}>
           {blogs.map(blog => {

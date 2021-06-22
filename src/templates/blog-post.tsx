@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Link, graphql, PageProps } from "gatsby";
-import NotFoundPage from "../pages/404";
-import Bio from "../components/shared/Bio";
-import Layout from "../components/shared/Layout";
-import Seo from "../components/shared/Seo";
+import NotFoundPage from "src/pages/404";
+import Layout from "src/components/shared/Layout";
+import Seo from "src/components/shared/Seo";
+import { StyledContainer } from "src/styles";
 
 const BlogPostTemplate: React.FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> =
   ({ data, location }) => {
@@ -19,48 +19,47 @@ const BlogPostTemplate: React.FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> =
           title={blog.frontmatter?.title as string}
           description={blog.frontmatter?.description || blog.excerpt}
         />
-        <article
-          className='blog-post'
-          itemScope
-          itemType='http://schema.org/Article'>
-          <header>
-            <h1 itemProp='headline'>{blog.frontmatter?.title}</h1>
-            <p>{blog.frontmatter?.date}</p>
-          </header>
-          <section
-            dangerouslySetInnerHTML={{ __html: blog.html as string }}
-            itemProp='articleBody'
-          />
-          <hr />
-          <footer>
-            <Bio />
-          </footer>
-        </article>
-        <nav className='blog-post-nav'>
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0
-            }}>
-            <li>
-              {previous && (
-                <Link to={previous.fields?.slug as string} rel='prev'>
-                  ← {previous.frontmatter?.title}
-                </Link>
-              )}
-            </li>
-            <li>
-              {next && (
-                <Link to={next.fields?.slug as string} rel='next'>
-                  {next.frontmatter?.title} →
-                </Link>
-              )}
-            </li>
-          </ul>
-        </nav>
+        <StyledContainer>
+          <article
+            className='blog-post'
+            itemScope
+            itemType='http://schema.org/Article'>
+            <header>
+              <h1 itemProp='headline'>{blog.frontmatter?.title}</h1>
+              <p>{blog.frontmatter?.date}</p>
+            </header>
+            <section
+              dangerouslySetInnerHTML={{ __html: blog.html as string }}
+              itemProp='articleBody'
+            />
+            <hr />
+          </article>
+          <nav className='blog-post-nav'>
+            <ul
+              style={{
+                display: `flex`,
+                flexWrap: `wrap`,
+                justifyContent: `space-between`,
+                listStyle: `none`,
+                padding: 0
+              }}>
+              <li>
+                {previous && (
+                  <Link to={previous.fields?.slug as string} rel='prev'>
+                    ← {previous.frontmatter?.title}
+                  </Link>
+                )}
+              </li>
+              <li>
+                {next && (
+                  <Link to={next.fields?.slug as string} rel='next'>
+                    {next.frontmatter?.title} →
+                  </Link>
+                )}
+              </li>
+            </ul>
+          </nav>
+        </StyledContainer>
       </Layout>
     );
   };

@@ -7,8 +7,13 @@
   <a href="https://apple-yagi.netlify.app/">Apple Yagi Work</a>
 </h1>
 
-## 🚀 Depends
+## ⚙ Depends
 
 - Gatsby
+- Netlify CMS
 - TypeScript
 - Emotion
+
+## 🚀 Hosting
+
+- Netlify

@@ -3,12 +3,13 @@ module.exports = {
     title: "Apple Yagi Work",
     description: "東京で働くWebエンジニアのブログ。",
     author: {
-      name: "やなぎ",
-      summary: "東京で働くWebエンジニア"
+      name: "Yanagi",
+      summary: "Web Developer in Tokyo🗼"
     },
     siteUrl: "https://apple-yagi.netlify.app",
     social: {
-      twitter: "apple_yagi"
+      twitter: "apple_yagi",
+      github: "apple-yagi"
     }
   },
   plugins: [
@@ -20,6 +21,7 @@ module.exports = {
     "gatsby-plugin-tsconfig-paths",
     "gatsby-plugin-typegen",
     "gatsby-plugin-emotion",
+    "gatsby-plugin-postcss",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
