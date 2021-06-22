@@ -1,0 +1,56 @@
+{
+  "name": "apple-yagi-work",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Apple Yagi Work",
+  "author": "apple-yagi",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "tsc": "tsc",
+    "dev": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "stylegen": "yarn tsm src"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "gatsby": "^3.6.2",
+    "gatsby-plugin-emotion": "^6.7.1",
+    "gatsby-plugin-feed": "^3.7.1",
+    "gatsby-plugin-gatsby-cloud": "^2.7.1",
+    "gatsby-plugin-google-gtag": "^3.7.1",
+    "gatsby-plugin-image": "^1.7.1",
+    "gatsby-plugin-manifest": "^3.7.1",
+    "gatsby-plugin-netlify-cms": "^5.7.1",
+    "gatsby-plugin-react-helmet": "^4.7.1",
+    "gatsby-plugin-sharp": "^3.7.1",
+    "gatsby-plugin-sitemap": "^4.3.1",
+    "gatsby-plugin-typegen": "^2.2.4",
+    "gatsby-remark-copy-linked-files": "^4.4.1",
+    "gatsby-remark-images": "^5.4.1",
+    "gatsby-remark-prismjs": "^5.4.1",
+    "gatsby-remark-responsive-iframe": "^4.4.1",
+    "gatsby-remark-smartypants": "^4.4.1",
+    "gatsby-source-filesystem": "^3.7.1",
+    "gatsby-transformer-remark": "^4.4.1",
+    "gatsby-transformer-sharp": "^3.7.1",
+    "netlify-cms-app": "^2.15.19",
+    "prismjs": "^1.23.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0"
+  },
+  "devDependencies": {
+    "@types/react-helmet": "^6.1.1",
+    "gatsby-plugin-tsconfig-paths": "^1.0.3",
+    "gatsby-remark-prismjs-title": "^1.0.0",
+    "typescript": "^4.3.4"
+  }
+}

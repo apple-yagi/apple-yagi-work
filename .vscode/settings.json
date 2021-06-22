@@ -1,0 +1,6 @@
+{
+  "stylelint.snippet": ["less", "postcss", "scss", "css"],
+  "stylelint.configOverrides": {
+    "ignoreFiles": "content/blog/*"
+  }
+}
