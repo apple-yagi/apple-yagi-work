@@ -1,11 +1,15 @@
 import * as React from "react";
-import { Link } from "gatsby";
 import styled from "@emotion/styled";
 import { StyledContainer } from "src/styles";
+import { Link } from "gatsby";
 
 const StyledHeader = styled.header`
-  max-width: 1024px;
-  margin: auto;
+  background-image: linear-gradient(#f5f5fa, #fff);
+  height: 50px;
+`;
+
+const CustomContainer = styled(StyledContainer)`
+  height: 100%;
 `;
 
 type Props = {
@@ -16,9 +20,9 @@ type Props = {
 const Header: React.FC<Props> = ({ isRootPath, title }) => {
   return (
     <StyledHeader>
-      <StyledContainer>
+      <CustomContainer>
         <Link to='/'>{title}</Link>
-      </StyledContainer>
+      </CustomContainer>
     </StyledHeader>
   );
 };

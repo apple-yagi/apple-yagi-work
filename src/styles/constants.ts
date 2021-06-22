@@ -6,5 +6,5 @@ export const breakPoint = {
 export const color = {
   baseGrey: "#d6d6e7",
   baseWhite: "#fff",
-  baseBlue: "#3c4fe0"
+  baseBlue: "#5c6bc0"
 };
