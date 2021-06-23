@@ -62,12 +62,16 @@ const Seo: React.FC<Props> = ({
           content: metaDescription
         },
         {
+          property: `og:image`,
+          content: `https://apple-yagi.netlify.app/images/ogimage.png`
+        },
+        {
           property: `og:type`,
           content: `website`
         },
         {
           name: `twitter:card`,
-          content: `summary`
+          content: `summary_large_image`
         },
         {
           name: `twitter:creator`,

@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: "Apple Yagi Work",
-    description: "東京で働くWebエンジニアのブログ。",
+    title: "Apple Yagi",
+    description: "Web Developer in Tokyo🗼",
     author: {
       name: "Yanagi",
       summary: "Web Developer in Tokyo🗼"
