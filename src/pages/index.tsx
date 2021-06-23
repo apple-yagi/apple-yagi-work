@@ -7,7 +7,7 @@ import Layout from "src/components/shared/Layout";
 import Seo from "src/components/shared/Seo";
 import { StyledContainer, color } from "src/styles";
 
-const StyledBioWrapper = styled.div`
+const StyledHeader = styled.header`
   background-image: linear-gradient(#fff, #f5f5fa);
   height: 300px;
   margin: 50px 0 420px;
@@ -17,11 +17,10 @@ const StyledBioWrapper = styled.div`
     background-image: linear-gradient(#fff, #f5f5fa);
     height: 200px;
     margin: 0 0 250px;
-    padding: 0 30px;
   }
 `;
 
-const StyledBioContainer = styled(StyledContainer)`
+const StyledBioWrapper = styled(StyledContainer)`
   margin-top: 30px;
   max-width: 650px;
   height: 650px;
@@ -30,9 +29,9 @@ const StyledBioContainer = styled(StyledContainer)`
   box-shadow: 10px 10px 30px #b6b6c4, -10px -10px 30px #f6f6ff;
 
   ${up("lg")} {
-    margin-top: 30px;
     max-width: 1024px;
     height: 350px;
+    margin-top: 70px;
   }
 `;
 
@@ -40,18 +39,17 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
   data,
   location
 }) => {
-  const siteTitle = data.site?.siteMetadata?.title || `Title`;
   const blogs = data.allMarkdownRemark.nodes;
 
   if (blogs.length === 0) {
     return (
-      <Layout location={location} title={siteTitle}>
+      <Layout location={location}>
         <Seo title='Blogs' />
-        <StyledBioWrapper>
-          <StyledBioContainer>
+        <StyledHeader>
+          <StyledBioWrapper>
             <Bio />
-          </StyledBioContainer>
-        </StyledBioWrapper>
+          </StyledBioWrapper>
+        </StyledHeader>
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
@@ -62,13 +60,13 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
   }
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location}>
       <Seo title='Blogs' />
-      <StyledBioWrapper>
-        <StyledBioContainer>
+      <StyledHeader>
+        <StyledBioWrapper>
           <Bio />
-        </StyledBioContainer>
-      </StyledBioWrapper>
+        </StyledBioWrapper>
+      </StyledHeader>
       <StyledContainer>
         <ol style={{ listStyle: `none` }}>
           {blogs.map(blog => {
@@ -112,11 +110,6 @@ export default BlogIndex;
 
 export const pageQuery = graphql`
   query BlogIndex {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
         excerpt

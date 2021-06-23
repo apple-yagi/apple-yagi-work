@@ -26,7 +26,7 @@ const Profile: React.FC<Props> = ({ author, social }) => {
       <StaticImage
         src='../../../../static/images/profile.jpg'
         alt='Author'
-        placeholder='blurred'
+        placeholder='none'
         layout='fixed'
         width={200}
         height={200}
@@ -53,6 +53,7 @@ const Profile: React.FC<Props> = ({ author, social }) => {
                 className='rounded-full'
                 src='../../../../static/images/twitter.png'
                 alt='twitter'
+                placeholder='none'
                 width={28}
                 height={28}
               />
@@ -65,6 +66,7 @@ const Profile: React.FC<Props> = ({ author, social }) => {
                 className='rounded-full'
                 src='../../../../static/images/github.png'
                 alt='github'
+                placeholder='none'
                 width={28}
                 height={28}
               />
