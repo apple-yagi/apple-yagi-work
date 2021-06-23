@@ -4,15 +4,35 @@ import { up } from "styled-breakpoints";
 import NotFoundPage from "src/pages/404";
 import Layout from "src/components/shared/Layout";
 import Seo from "src/components/shared/Seo";
-import Bio from "src/components/shared/Bio";
 import { StyledContainer } from "src/styles";
 import styled from "@emotion/styled";
+import { color, StyledMarkdown } from "src/styles";
 
-const CustomContainer = styled(StyledContainer)`
+const StyledHeader = styled.header`
+  width: 100%;
   padding-top: 80px;
 
   ${up("lg")} {
     padding-top: 100px;
+  }
+`;
+
+const StyledTitle = styled.h1`
+  font-size: 24px;
+  font-weight: bold;
+  color: ${color.grey800};
+
+  ${up("md")} {
+    font-size: 28px;
+  }
+`;
+
+const StyledDate = styled.p`
+  font-size: 14px;
+  color: ${color.grey600};
+
+  ${up("md")} {
+    font-size: 16px;
   }
 `;
 
@@ -29,24 +49,26 @@ const BlogPostTemplate: React.FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> =
           title={blog.frontmatter?.title as string}
           description={blog.frontmatter?.description || blog.excerpt}
         />
-        <CustomContainer>
+        <StyledHeader>
+          <StyledContainer className='text-center'>
+            <StyledTitle className='' itemProp='headline'>
+              {blog.frontmatter?.title}
+            </StyledTitle>
+            <StyledDate>{blog.frontmatter?.date}</StyledDate>
+          </StyledContainer>
+        </StyledHeader>
+        <hr className='my-7' />
+        <StyledContainer>
           <article
             className='blog-post'
             itemScope
             itemType='http://schema.org/Article'>
-            <header>
-              <h1 itemProp='headline'>{blog.frontmatter?.title}</h1>
-              <p>{blog.frontmatter?.date}</p>
-            </header>
-            <section
+            <StyledMarkdown
               dangerouslySetInnerHTML={{ __html: blog.html as string }}
               itemProp='articleBody'
             />
-            <hr />
           </article>
-          <footer className='my-7'>
-            <Bio />
-          </footer>
+          <hr className='my-5' />
           <nav className='blog-post-nav'>
             <ul
               style={{
@@ -72,7 +94,7 @@ const BlogPostTemplate: React.FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> =
               </li>
             </ul>
           </nav>
-        </CustomContainer>
+        </StyledContainer>
       </Layout>
     );
   };
