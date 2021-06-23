@@ -36,6 +36,14 @@ const StyledBioWrapper = styled(StyledContainer)`
   }
 `;
 
+const CustomContainer = styled(StyledContainer)`
+  padding: 0 20px;
+
+  ${up("xl")} {
+    padding: 0;
+  }
+`;
+
 const StyledSpan = styled.span`
   font-size: 24px;
   color: ${color.grey700};
@@ -73,7 +81,7 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
           <Bio />
         </StyledBioWrapper>
       </StyledHeader>
-      <StyledContainer>
+      <CustomContainer>
         <StyledSpan>Blogs</StyledSpan>
         <hr />
         <ol style={{ listStyle: `none` }}>
@@ -88,7 +96,7 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
             );
           })}
         </ol>
-      </StyledContainer>
+      </CustomContainer>
     </Layout>
   );
 };
