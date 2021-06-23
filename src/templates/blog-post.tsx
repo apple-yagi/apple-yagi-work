@@ -17,6 +17,10 @@ const StyledHeader = styled.header`
   }
 `;
 
+const StyledArticle = styled.article`
+  padding: 20px;
+`;
+
 const StyledTitle = styled.h1`
   font-size: 24px;
   font-weight: bold;
@@ -59,7 +63,7 @@ const BlogPostTemplate: React.FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> =
         </StyledHeader>
         <hr className='my-7' />
         <StyledContainer>
-          <article
+          <StyledArticle
             className='blog-post'
             itemScope
             itemType='http://schema.org/Article'>
@@ -67,7 +71,7 @@ const BlogPostTemplate: React.FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> =
               dangerouslySetInnerHTML={{ __html: blog.html as string }}
               itemProp='articleBody'
             />
-          </article>
+          </StyledArticle>
           <hr className='my-5' />
           <nav className='blog-post-nav'>
             <ul
