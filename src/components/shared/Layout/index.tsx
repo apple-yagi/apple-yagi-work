@@ -2,9 +2,7 @@ import * as React from "react";
 import { ThemeProvider } from "@emotion/react";
 import Navigation from "./modules/Navigation";
 import Footer from "./modules/Footer";
-import { up } from "styled-breakpoints";
 import { theme } from "@/styles";
-import styled from "@emotion/styled";
 
 type Props = {
   location: typeof window.location;
