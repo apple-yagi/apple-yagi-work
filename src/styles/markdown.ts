@@ -7,6 +7,7 @@ export const StyledMarkdown = styled.section`
     line-height: 1.2;
     font-weight: bold;
     margin: 1.6em 0 0.4em 0;
+    text-decoration: underline;
 
     ${up("lg")} {
       font-size: 24px;
@@ -42,6 +43,21 @@ export const StyledMarkdown = styled.section`
 
     ${up("lg")} {
       font-size: 16px;
+    }
+  }
+
+  ol,
+  ul {
+    margin: 1em 0;
+    padding-left: 40px;
+    list-style-type: disc;
+  }
+
+  a {
+    color: #0f83fd;
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 `;
