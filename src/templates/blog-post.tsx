@@ -1,25 +1,35 @@
 import * as React from "react";
 import { Link, graphql, PageProps } from "gatsby";
+import { up } from "styled-breakpoints";
 import NotFoundPage from "src/pages/404";
 import Layout from "src/components/shared/Layout";
 import Seo from "src/components/shared/Seo";
+import Bio from "src/components/shared/Bio";
 import { StyledContainer } from "src/styles";
+import styled from "@emotion/styled";
+
+const CustomContainer = styled(StyledContainer)`
+  padding-top: 80px;
+
+  ${up("lg")} {
+    padding-top: 100px;
+  }
+`;
 
 const BlogPostTemplate: React.FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> =
   ({ data, location }) => {
     const blog = data.markdownRemark;
-    const siteTitle = data.site?.siteMetadata?.title || `Title`;
     const { previous, next } = data;
 
     if (!blog) return <NotFoundPage />;
 
     return (
-      <Layout location={location} title={siteTitle}>
+      <Layout location={location}>
         <Seo
           title={blog.frontmatter?.title as string}
           description={blog.frontmatter?.description || blog.excerpt}
         />
-        <StyledContainer>
+        <CustomContainer>
           <article
             className='blog-post'
             itemScope
@@ -34,6 +44,9 @@ const BlogPostTemplate: React.FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> =
             />
             <hr />
           </article>
+          <footer className='my-7'>
+            <Bio />
+          </footer>
           <nav className='blog-post-nav'>
             <ul
               style={{
@@ -59,7 +72,7 @@ const BlogPostTemplate: React.FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> =
               </li>
             </ul>
           </nav>
-        </StyledContainer>
+        </CustomContainer>
       </Layout>
     );
   };
@@ -72,11 +85,6 @@ export const pageQuery = graphql`
     $previousPostId: String
     $nextPostId: String
   ) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     markdownRemark(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)
