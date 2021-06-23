@@ -1,10 +1,11 @@
 import * as React from "react";
 import styled from "@emotion/styled";
-import { Link, graphql, PageProps } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import { up } from "styled-breakpoints";
 import Bio from "@/components/shared/Bio";
 import Layout from "src/components/shared/Layout";
 import Seo from "src/components/shared/Seo";
+import BlogCard from "@/components/organisms/blog/BlogCard";
 import { StyledContainer, color } from "src/styles";
 
 const StyledHeader = styled.header`
@@ -33,6 +34,11 @@ const StyledBioWrapper = styled(StyledContainer)`
     height: 350px;
     margin-top: 70px;
   }
+`;
+
+const StyledSpan = styled.span`
+  font-size: 24px;
+  color: ${color.grey700};
 `;
 
 const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
@@ -68,35 +74,16 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
         </StyledBioWrapper>
       </StyledHeader>
       <StyledContainer>
+        <StyledSpan>Blogs</StyledSpan>
+        <hr />
         <ol style={{ listStyle: `none` }}>
           {blogs.map(blog => {
-            const title = blog.frontmatter?.title || blog.fields?.slug;
             if (!blog.frontmatter) return;
             if (!blog.fields) return;
 
             return (
               <li key={blog.fields.slug}>
-                <article
-                  className='post-list-item'
-                  itemScope
-                  itemType='http://schema.org/Article'>
-                  <header>
-                    <h2>
-                      <Link to={blog.fields.slug as string} itemProp='url'>
-                        <span itemProp='headline'>{title}</span>
-                      </Link>
-                    </h2>
-                    <small>{blog.frontmatter?.date}</small>
-                  </header>
-                  <section>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: blog.excerpt as string
-                      }}
-                      itemProp='description'
-                    />
-                  </section>
-                </article>
+                <BlogCard blog={blog} />
               </li>
             );
           })}
