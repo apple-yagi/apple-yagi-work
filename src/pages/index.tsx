@@ -1,9 +1,40 @@
 import * as React from "react";
+import styled from "@emotion/styled";
 import { Link, graphql, PageProps } from "gatsby";
+import { up } from "styled-breakpoints";
 import Bio from "@/components/shared/Bio";
 import Layout from "src/components/shared/Layout";
 import Seo from "src/components/shared/Seo";
-import { StyledContainer } from "src/styles";
+import { StyledContainer, color } from "src/styles";
+
+const StyledBioWrapper = styled.div`
+  background-image: linear-gradient(#fff, #f5f5fa);
+  height: 300px;
+  margin: 50px 0 420px;
+  padding: 0 30px;
+
+  ${up("lg")} {
+    background-image: linear-gradient(#fff, #f5f5fa);
+    height: 200px;
+    margin: 0 0 250px;
+    padding: 0 30px;
+  }
+`;
+
+const StyledBioContainer = styled(StyledContainer)`
+  margin-top: 30px;
+  max-width: 650px;
+  height: 650px;
+  background: ${color.baseGrey};
+  border-radius: 25px;
+  box-shadow: 10px 10px 30px #b6b6c4, -10px -10px 30px #f6f6ff;
+
+  ${up("lg")} {
+    margin-top: 30px;
+    max-width: 1024px;
+    height: 350px;
+  }
+`;
 
 const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
   data,
@@ -16,7 +47,11 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
     return (
       <Layout location={location} title={siteTitle}>
         <Seo title='Blogs' />
-        <Bio />
+        <StyledBioWrapper>
+          <StyledBioContainer>
+            <Bio />
+          </StyledBioContainer>
+        </StyledBioWrapper>
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
@@ -29,7 +64,11 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title='Blogs' />
-      <Bio />
+      <StyledBioWrapper>
+        <StyledBioContainer>
+          <Bio />
+        </StyledBioContainer>
+      </StyledBioWrapper>
       <StyledContainer>
         <ol style={{ listStyle: `none` }}>
           {blogs.map(blog => {

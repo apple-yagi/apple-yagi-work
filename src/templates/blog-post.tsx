@@ -3,6 +3,7 @@ import { Link, graphql, PageProps } from "gatsby";
 import NotFoundPage from "src/pages/404";
 import Layout from "src/components/shared/Layout";
 import Seo from "src/components/shared/Seo";
+import Bio from "src/components/shared/Bio";
 import { StyledContainer } from "src/styles";
 
 const BlogPostTemplate: React.FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> =
@@ -34,6 +35,9 @@ const BlogPostTemplate: React.FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> =
             />
             <hr />
           </article>
+          <footer className='my-7'>
+            <Bio />
+          </footer>
           <nav className='blog-post-nav'>
             <ul
               style={{
