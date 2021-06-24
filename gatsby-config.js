@@ -9,7 +9,8 @@ module.exports = {
     siteUrl: "https://apple-yagi.netlify.app",
     social: {
       twitter: "apple_yagi",
-      github: "apple-yagi"
+      github: "apple-yagi",
+      qiita: "apple-yagi"
     }
   },
   plugins: [

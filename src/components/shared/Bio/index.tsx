@@ -28,6 +28,7 @@ const Bio: React.FC = () => {
           social {
             twitter
             github
+            qiita
           }
         }
       }

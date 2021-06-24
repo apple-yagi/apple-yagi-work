@@ -5,7 +5,9 @@ import { StyledFlex, color } from "src/styles";
 
 type Props = {
   author?: GatsbyTypes.Maybe<Pick<GatsbyTypes.Author, "summary" | "name">>;
-  social?: GatsbyTypes.Maybe<Pick<GatsbyTypes.Social, "twitter" | "github">>;
+  social?: GatsbyTypes.Maybe<
+    Pick<GatsbyTypes.Social, "twitter" | "github" | "qiita">
+  >;
 };
 
 const StyledLink = styled.a`
@@ -66,6 +68,19 @@ const Profile: React.FC<Props> = ({ author, social }) => {
                 className='rounded-full'
                 src='../../../../static/images/github.png'
                 alt='github'
+                placeholder='none'
+                width={28}
+                height={28}
+              />
+            </StyledLink>
+            <StyledLink
+              href={`https://qiita.com/${social?.qiita || ``}`}
+              target='_blank'
+              rel='noopener noreferrer'>
+              <StaticImage
+                className='rounded-full'
+                src='../../../../static/images/qiita.png'
+                alt='qiita'
                 placeholder='none'
                 width={28}
                 height={28}
