@@ -13,6 +13,7 @@ type Props = {
   description?: string;
   lang?: string;
   meta?: Array<{ name: string; content: string }>;
+  image?: string;
   title: string;
 };
 
@@ -20,6 +21,7 @@ const Seo: React.FC<Props> = ({
   description = "",
   lang = "ja",
   title,
+  image = "images/ogimage.png",
   meta = []
 }) => {
   const { site } = useStaticQuery(
@@ -29,6 +31,7 @@ const Seo: React.FC<Props> = ({
           siteMetadata {
             title
             description
+            siteUrl
             social {
               twitter
             }
@@ -40,6 +43,7 @@ const Seo: React.FC<Props> = ({
 
   const metaDescription = description || site.siteMetadata.description;
   const defaultTitle = site.siteMetadata?.title;
+  const ogpImage = `${site.siteMetadata?.siteUrl}${image}`;
 
   return (
     <Helmet
@@ -63,7 +67,7 @@ const Seo: React.FC<Props> = ({
         },
         {
           property: `og:image`,
-          content: `https://apple-yagi.netlify.app/images/ogimage.png`
+          content: ogpImage
         },
         {
           property: `og:type`,
