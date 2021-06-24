@@ -3,36 +3,36 @@ import { up } from "styled-breakpoints";
 
 export const StyledMarkdown = styled.section`
   h1 {
-    font-size: 22px;
+    font-size: 24px;
     line-height: 1.2;
     font-weight: bold;
     margin: 1.6em 0 0.4em 0;
     text-decoration: underline;
 
     ${up("lg")} {
-      font-size: 24px;
+      font-size: 26px;
     }
   }
 
   h2 {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.2;
     font-weight: bold;
     margin: 1.6em 0 0.4em 0;
 
     ${up("lg")} {
-      font-size: 20px;
+      font-size: 22px;
     }
   }
 
   h3 {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 2;
     font-weight: bold;
     margin: 1.6em 0 0.4em 0;
 
     ${up("lg")} {
-      font-size: 18px;
+      font-size: 20px;
     }
   }
 
