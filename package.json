@@ -1,12 +1,5 @@
 {
-  "name": "apple-yagi-work",
   "version": "1.0.0",
-  "private": true,
-  "description": "Apple Yagi Work",
-  "author": "apple-yagi",
-  "keywords": [
-    "gatsby"
-  ],
   "scripts": {
     "tsc": "tsc",
     "dev": "gatsby develop",
@@ -17,6 +10,7 @@
     "stylegen": "yarn tsm src"
   },
   "dependencies": {
+    "@deckdeckgo/highlight-code": "^3.3.1",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
     "@mdx-js/mdx": "^1.6.22",
@@ -37,8 +31,8 @@
     "gatsby-plugin-typegen": "^2.2.4",
     "gatsby-remark-autolink-headers": "^4.5.0",
     "gatsby-remark-copy-linked-files": "^4.4.1",
+    "gatsby-remark-highlight-code": "^3.0.0",
     "gatsby-remark-images": "^5.4.1",
-    "gatsby-remark-prismjs": "^5.4.1",
     "gatsby-remark-responsive-iframe": "^4.4.1",
     "gatsby-remark-smartypants": "^4.4.1",
     "gatsby-source-filesystem": "^3.7.1",
@@ -46,7 +40,6 @@
     "gatsby-transformer-sharp": "^3.7.1",
     "netlify-cms-app": "^2.15.19",
     "postcss": "^8.3.5",
-    "prismjs": "^1.23.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",

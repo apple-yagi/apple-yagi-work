@@ -86,24 +86,12 @@ module.exports = {
             }
           },
           {
-            resolve: `gatsby-remark-prismjs`,
+            resolve: `gatsby-remark-highlight-code`,
             options: {
-              showLineNumbers: true,
-              aliases: {
-                s: "bash",
-                js: "javascript",
-                mdx: "md",
-                json: "json",
-                vue: "vue",
-                html: "html",
-                py: "python",
-                ts: "typescript",
-                css: "css",
-                scss: "scss",
-                Dockerfile: "Dockerfile",
-                yml: "yml",
-                conf: "conf"
-              }
+              terminal: "carbon",
+              theme: "dracula",
+              lineNumbers: true,
+              editable: true
             }
           },
           `gatsby-remark-copy-linked-files`,
