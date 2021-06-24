@@ -15,35 +15,27 @@ export const StyledMarkdown = styled.section`
   }
 
   h2 {
-    font-size: 20px;
+    font-size: 22px;
     line-height: 1.2;
     font-weight: bold;
     margin: 1.6em 0 0.4em 0;
 
     ${up("lg")} {
-      font-size: 22px;
+      font-size: 24px;
     }
   }
 
   h3 {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 2;
     font-weight: bold;
     margin: 1.6em 0 0.4em 0;
-
-    ${up("lg")} {
-      font-size: 20px;
-    }
   }
 
   p {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6;
     margin: 1em 0;
-
-    ${up("lg")} {
-      font-size: 16px;
-    }
   }
 
   ol,
