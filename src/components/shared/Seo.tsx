@@ -21,7 +21,7 @@ const Seo: React.FC<Props> = ({
   description = "",
   lang = "ja",
   title,
-  image = "images/ogimage.png",
+  image = "/images/ogimage.png",
   meta = []
 }) => {
   const { site } = useStaticQuery(
