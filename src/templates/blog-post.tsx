@@ -51,7 +51,8 @@ const BlogPostTemplate: React.FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> =
       <Layout location={location}>
         <Seo
           title={blog.frontmatter?.title as string}
-          description={blog.frontmatter?.description || blog.excerpt}
+          description={blog.excerpt}
+          image={blog.frontmatter?.ogp}
         />
         <StyledHeader>
           <StyledContainer className='text-center'>
@@ -118,7 +119,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
-        description
+        ogp
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
