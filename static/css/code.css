@@ -1,0 +1,13 @@
+.gatsby-code-title {
+  position: relative;
+}
+
+.gatsby-code-title span {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  padding: 2px 6px;
+  background-color: #757575;
+  color: #eee;
+  border-radius: 0 0 4px 4px;
+}
