@@ -86,12 +86,13 @@ module.exports = {
             }
           },
           {
-            resolve: `gatsby-remark-highlight-code`,
+            resolve: `gatsby-remark-prismjs`,
             options: {
-              terminal: "carbon",
-              theme: "dracula",
-              lineNumbers: true,
-              editable: true
+              classPrefix: "language-",
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: true,
+              noInlineHighlight: false
             }
           },
           `gatsby-remark-copy-linked-files`,

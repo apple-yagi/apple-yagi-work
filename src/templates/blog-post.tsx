@@ -7,8 +7,6 @@ import Seo from "src/components/shared/Seo";
 import { StyledContainer } from "src/styles";
 import styled from "@emotion/styled";
 import { color, StyledMarkdown } from "src/styles";
-import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
-deckDeckGoHighlightElement();
 
 const StyledHeader = styled.header`
   width: 100%;

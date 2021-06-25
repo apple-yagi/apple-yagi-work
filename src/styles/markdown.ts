@@ -52,4 +52,10 @@ export const StyledMarkdown = styled.section`
       text-decoration: underline;
     }
   }
+
+  span {
+    ${up("lg")} {
+      font-size: 16px !important;
+    }
+  }
 `;
