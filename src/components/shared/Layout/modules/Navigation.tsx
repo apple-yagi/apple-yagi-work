@@ -10,6 +10,7 @@ const StyledNav = styled.nav`
   position: fixed;
   width: 100%;
   height: 50px;
+  z-index: 99999;
 `;
 
 const CustomContainer = styled(StyledContainer)`
