@@ -44,7 +44,7 @@ const CustomContainer = styled(StyledContainer)`
   }
 
   ${up("lg")} {
-    padding: 0;
+    padding: 0 60px;
   }
 `;
 
