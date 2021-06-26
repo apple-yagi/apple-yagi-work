@@ -1,5 +1,6 @@
 import * as React from "react";
 import { ThemeProvider } from "@emotion/react";
+import { DrawerProvider } from "@/context/Drawer";
 import Navigation from "./modules/Navigation";
 import Footer from "./modules/Footer";
 import styled from "@emotion/styled";
@@ -20,11 +21,13 @@ const Layout: React.FC<Props> = ({ location, children }) => {
 
   return (
     <div data-is-root-path={isRootPath}>
-      <ThemeProvider theme={theme}>
-        <Navigation isRootPath={isRootPath} />
-        <StyledMain>{children}</StyledMain>
-        <Footer />
-      </ThemeProvider>
+      <DrawerProvider>
+        <ThemeProvider theme={theme}>
+          <Navigation isRootPath={isRootPath} />
+          <StyledMain>{children}</StyledMain>
+          <Footer />
+        </ThemeProvider>
+      </DrawerProvider>
     </div>
   );
 };

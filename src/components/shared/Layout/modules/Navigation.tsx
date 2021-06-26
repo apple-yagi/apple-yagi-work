@@ -4,6 +4,7 @@ import { Link } from "gatsby";
 import { StyledContainer } from "src/styles";
 import useWindowSize from "@/hooks/useWindowSize";
 import { up } from "styled-breakpoints";
+import { DrawerContext } from "@/context/Drawer";
 
 const StyledNav = styled.nav`
   background-image: linear-gradient(#f5f5fa, #fff);
@@ -17,10 +18,23 @@ const CustomContainer = styled(StyledContainer)`
   height: 100%;
   display: flex;
   align-items: center;
-  padding-left: 15px;
+  justify-content: space-between;
+  padding: 0 15px;
 
-  ${up("md")} {
+  ${up("lg")} {
     padding: 0;
+  }
+`;
+
+const ToggleButton = styled.button`
+  &:focus,
+  &:active,
+  &:hover {
+    outline: none;
+  }
+
+  ${up("lg")} {
+    display: none;
   }
 `;
 
@@ -32,6 +46,7 @@ const Navigation: React.FC<Props> = ({ isRootPath }) => {
   if (isRootPath) return <></>;
 
   const { windowSize } = useWindowSize();
+  const { toggleDrawer } = React.useContext(DrawerContext);
 
   return (
     <StyledNav>
@@ -46,6 +61,7 @@ const Navigation: React.FC<Props> = ({ isRootPath }) => {
             </>
           )}
         </Link>
+        <ToggleButton onClick={toggleDrawer}>🔖</ToggleButton>
       </CustomContainer>
     </StyledNav>
   );

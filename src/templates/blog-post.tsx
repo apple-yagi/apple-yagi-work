@@ -2,17 +2,22 @@ import * as React from "react";
 import { graphql, PageProps } from "gatsby";
 import { up } from "styled-breakpoints";
 import NotFoundPage from "src/pages/404";
-import Layout from "src/components/shared/Layout";
-import Seo from "src/components/shared/Seo";
-import Toc from "src/components/shared/Toc";
+import Layout from "@/components/shared/Layout";
+import Seo from "@/components/shared/Seo";
+import Toc from "@/components/shared/Toc";
+import TocDrawer from "@/components/shared/TocDrawer";
 import BlogHeader from "@/components/organisms/blog/BlogHeader";
 import BlogNavigation from "@/components/organisms/blog/BlogNavigation";
 import styled from "@emotion/styled";
 import { color, StyledMarkdown, StyledFlex, StyledContainer } from "src/styles";
 
 const StyledArticle = styled.article`
-  max-width: 1024px;
-  padding: 0 40px;
+  width: 100%;
+  padding: 0 20px;
+
+  ${up("md")} {
+    padding: 0 30px;
+  }
 
   ${up("lg")} {
     width: calc(100% - 300px);
@@ -55,6 +60,7 @@ const BlogPostTemplate: React.FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> =
               />
             </StyledArticle>
             <Toc tableOfContents={blog.tableOfContents as string} />
+            <TocDrawer tableOfContents={blog.tableOfContents as string} />
           </CustomFlex>
           <hr className='my-5' />
           <BlogNavigation previous={previous} next={next} />

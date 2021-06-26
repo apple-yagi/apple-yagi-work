@@ -8,10 +8,10 @@ type Props = {
 };
 
 const StyledAside = styled.aside`
-  display: none;
+  display: none !important;
 
   ${up("lg")} {
-    display: block;
+    display: block !important;
     width: 300px;
     margin-left: 30px;
   }
