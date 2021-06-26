@@ -39,7 +39,7 @@ const StyledBioWrapper = styled(StyledContainer)`
 const CustomContainer = styled(StyledContainer)`
   padding: 0 20px;
 
-  ${up("xl")} {
+  ${up("lg")} {
     padding: 0;
   }
 `;

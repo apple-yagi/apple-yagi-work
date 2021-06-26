@@ -9,11 +9,11 @@ import Profile from "@/components/shared/Bio/Profile";
 const StyledFooter = styled.footer`
   width: 100%;
   margin-top: 30px;
-  padding: 50px 20px;
+  padding: 50px 20px 10px;
   background-image: linear-gradient(#f5f5fa, #fff);
   color: ${color.grey700};
 
-  ${up("xl")} {
+  ${up("lg")} {
     padding: 50px 150px 3px;
   }
 `;

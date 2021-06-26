@@ -1,42 +1,32 @@
 import * as React from "react";
-import { Link, graphql, PageProps } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import { up } from "styled-breakpoints";
 import NotFoundPage from "src/pages/404";
 import Layout from "src/components/shared/Layout";
 import Seo from "src/components/shared/Seo";
-import { StyledContainer } from "src/styles";
+import Toc from "src/components/shared/Toc";
+import BlogHeader from "@/components/organisms/blog/BlogHeader";
+import BlogNavigation from "@/components/organisms/blog/BlogNavigation";
 import styled from "@emotion/styled";
-import { color, StyledMarkdown } from "src/styles";
-
-const StyledHeader = styled.header`
-  width: 100%;
-  padding-top: 80px;
-
-  ${up("lg")} {
-    padding-top: 100px;
-  }
-`;
+import { color, StyledMarkdown, StyledFlex, StyledContainer } from "src/styles";
 
 const StyledArticle = styled.article`
-  padding: 20px;
-`;
+  max-width: 1024px;
+  padding: 0 40px;
 
-const StyledTitle = styled.h1`
-  font-size: 24px;
-  font-weight: bold;
-  color: ${color.grey800};
-
-  ${up("md")} {
-    font-size: 28px;
+  ${up("lg")} {
+    width: calc(100% - 300px);
+    background-color: ${color.grey100};
+    border-radius: 12px;
   }
 `;
 
-const StyledDate = styled.p`
-  font-size: 14px;
-  color: ${color.grey600};
+const CustomFlex = styled(StyledFlex)`
+  align-items: initial;
+  padding-top: 10px;
 
   ${up("md")} {
-    font-size: 16px;
+    padding-top: 20px;
   }
 `;
 
@@ -54,51 +44,20 @@ const BlogPostTemplate: React.FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> =
           description={blog.excerpt}
           image={blog.frontmatter?.ogp}
         />
-        <StyledHeader>
-          <StyledContainer className='text-center'>
-            <StyledTitle className='' itemProp='headline'>
-              {blog.frontmatter?.title}
-            </StyledTitle>
-            <StyledDate>{blog.frontmatter?.date}</StyledDate>
-          </StyledContainer>
-        </StyledHeader>
-        <hr className='my-7' />
+        <BlogHeader blog={blog} />
+        <hr className='mt-7' />
         <StyledContainer>
-          <StyledArticle
-            className='blog-post'
-            itemScope
-            itemType='http://schema.org/Article'>
-            <StyledMarkdown
-              dangerouslySetInnerHTML={{ __html: blog.html as string }}
-              itemProp='articleBody'
-            />
-          </StyledArticle>
+          <CustomFlex>
+            <StyledArticle itemScope itemType='http://schema.org/Article'>
+              <StyledMarkdown
+                dangerouslySetInnerHTML={{ __html: blog.html as string }}
+                itemProp='articleBody'
+              />
+            </StyledArticle>
+            <Toc tableOfContents={blog.tableOfContents as string} />
+          </CustomFlex>
           <hr className='my-5' />
-          <nav className='blog-post-nav'>
-            <ul
-              style={{
-                display: `flex`,
-                flexWrap: `wrap`,
-                justifyContent: `space-between`,
-                listStyle: `none`,
-                padding: 0
-              }}>
-              <li>
-                {previous && (
-                  <Link to={previous.fields?.slug as string} rel='prev'>
-                    ← {previous.frontmatter?.title}
-                  </Link>
-                )}
-              </li>
-              <li>
-                {next && (
-                  <Link to={next.fields?.slug as string} rel='next'>
-                    {next.frontmatter?.title} →
-                  </Link>
-                )}
-              </li>
-            </ul>
-          </nav>
+          <BlogNavigation previous={previous} next={next} />
         </StyledContainer>
       </Layout>
     );
@@ -121,6 +80,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         ogp
       }
+      tableOfContents
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
       fields {

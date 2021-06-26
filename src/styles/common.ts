@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
 export const StyledContainer = styled.div`
-  max-width: 1024px;
+  max-width: 1120px;
   margin: auto;
 `;
 

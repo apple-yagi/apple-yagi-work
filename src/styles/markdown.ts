@@ -9,6 +9,15 @@ export const StyledMarkdown = styled.section`
     margin: 1.6em 0 0.4em 0;
     text-decoration: underline;
 
+    &::before {
+      display: block;
+      content: " ";
+      margin-top: -60px;
+      height: 60px;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
     ${up("lg")} {
       font-size: 26px;
     }
@@ -20,6 +29,15 @@ export const StyledMarkdown = styled.section`
     font-weight: bold;
     margin: 1.6em 0 0.4em 0;
 
+    &::before {
+      display: block;
+      content: " ";
+      margin-top: -60px;
+      height: 60px;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
     ${up("lg")} {
       font-size: 24px;
     }
@@ -30,6 +48,15 @@ export const StyledMarkdown = styled.section`
     line-height: 2;
     font-weight: bold;
     margin: 1.6em 0 0.4em 0;
+
+    &::before {
+      display: block;
+      content: " ";
+      margin-top: -60px;
+      height: 60px;
+      visibility: hidden;
+      pointer-events: none;
+    }
   }
 
   p {
