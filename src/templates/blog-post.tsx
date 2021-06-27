@@ -46,7 +46,7 @@ const BlogPostTemplate: React.FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> =
       <Layout location={location}>
         <Seo
           title={blog.frontmatter?.title as string}
-          description={blog.excerpt}
+          description={blog.frontmatter?.description || blog.excerpt}
           image={blog.frontmatter?.ogp}
         />
         <BlogHeader blog={blog} />
@@ -84,6 +84,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        description
         ogp
       }
       tableOfContents
