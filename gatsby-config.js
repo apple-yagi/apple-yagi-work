@@ -24,6 +24,21 @@ module.exports = {
     "gatsby-plugin-emotion",
     "gatsby-plugin-postcss",
     {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://apple-yagi.netlify.app`,
+        stripQueryString: true
+      }
+    },
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://apple-yagi.netlify.app",
+        sitemap: "https://apple-yagi.netlify.app/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }]
+      }
+    },
+    {
       resolve: "gatsby-plugin-manifest",
       options: {
         name: `Apple Yagi Work`,
