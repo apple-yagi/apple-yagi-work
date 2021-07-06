@@ -1,7 +1,7 @@
 import * as React from "react";
 import { graphql, PageProps } from "gatsby";
 import { up } from "styled-breakpoints";
-import NotFoundPage from "src/pages/404";
+import NotFoundPage from "@/pages/404";
 import Layout from "@/components/shared/Layout";
 import Seo from "@/components/shared/Seo";
 import Toc from "@/components/shared/Toc";
@@ -10,6 +10,7 @@ import BlogHeader from "@/components/organisms/blog/BlogHeader";
 import BlogNavigation from "@/components/organisms/blog/BlogNavigation";
 import styled from "@emotion/styled";
 import { color, StyledMarkdown, StyledFlex, StyledContainer } from "src/styles";
+import SmallBio from "@/components/shared/SmallBio";
 
 const StyledArticle = styled.article`
   width: 100%;
@@ -32,6 +33,16 @@ const CustomFlex = styled(StyledFlex)`
 
   ${up("md")} {
     padding-top: 20px;
+  }
+`;
+
+const StyledAside = styled.aside`
+  display: none !important;
+
+  ${up("lg")} {
+    display: block !important;
+    width: 300px;
+    padding-left: 30px;
   }
 `;
 
@@ -59,7 +70,10 @@ const BlogPostTemplate: React.FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> =
                 itemProp='articleBody'
               />
             </StyledArticle>
-            <Toc tableOfContents={blog.tableOfContents as string} />
+            <StyledAside>
+              <SmallBio />
+              <Toc tableOfContents={blog.tableOfContents as string} />
+            </StyledAside>
             <TocDrawer tableOfContents={blog.tableOfContents as string} />
           </CustomFlex>
           <hr className='my-5' />

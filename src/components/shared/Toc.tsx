@@ -1,21 +1,10 @@
 import styled from "@emotion/styled";
 import * as React from "react";
 import { color } from "src/styles";
-import { up } from "styled-breakpoints";
 
 type Props = {
   tableOfContents: string;
 };
-
-const StyledAside = styled.aside`
-  display: none !important;
-
-  ${up("lg")} {
-    display: block !important;
-    width: 300px;
-    margin-left: 30px;
-  }
-`;
 
 const StyledStickyContainer = styled.div`
   height: 100%;
@@ -50,13 +39,11 @@ const StyledToc = styled.div`
 
 const Toc: React.FC<Props> = ({ tableOfContents }) => {
   return (
-    <StyledAside>
-      <StyledStickyContainer>
-        <StyledSticky>
-          <StyledToc dangerouslySetInnerHTML={{ __html: tableOfContents }} />
-        </StyledSticky>
-      </StyledStickyContainer>
-    </StyledAside>
+    <StyledStickyContainer>
+      <StyledSticky>
+        <StyledToc dangerouslySetInnerHTML={{ __html: tableOfContents }} />
+      </StyledSticky>
+    </StyledStickyContainer>
   );
 };
 
